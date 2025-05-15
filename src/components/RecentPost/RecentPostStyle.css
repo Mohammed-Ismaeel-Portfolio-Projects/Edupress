@@ -1,0 +1,4 @@
+.recent-post:hover h4 {
+  color: rgba(255, 120, 45, 1) !important;
+  cursor: pointer;
+}

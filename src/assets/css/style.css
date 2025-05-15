@@ -1,0 +1,44 @@
+header {
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  padding: 0 4.6vw;
+}
+.nav-active {
+  background-color: rgba(245, 245, 245, 1);
+}
+.nav-active {
+  color: rgba(255, 120, 45, 1) !important;
+}
+
+.sec-button {
+  display: none;
+}
+
+.categories button,
+.featured-courses button,
+.latest-articles button {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+  border: 2px solid rgba(157, 157, 157, 1);
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .hero {
+    background-image: url(./../images/background-mobile.png) !important;
+  }
+
+  .banner {
+    background-image: url(./../images/backgroud-banner-1.png) !important;
+  }
+  .sec-button {
+    display: block !important;
+  }
+}

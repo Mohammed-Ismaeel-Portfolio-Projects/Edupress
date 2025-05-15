@@ -1,0 +1,7 @@
+.banner {
+  background-image: url(./../../assets/images/banner-background.png);
+}
+
+.banner-text button {
+  margin-top: 20px;
+}
