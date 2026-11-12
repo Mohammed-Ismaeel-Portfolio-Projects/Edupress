@@ -24,7 +24,7 @@ const HomePage = () => {
       <Statistics />
       <Grow />
       <Banner2 />
-      <Feedback />
+      {/* <Feedback /> */}
       <Banner3 />
       <LatestArticles />
       <Footer />
