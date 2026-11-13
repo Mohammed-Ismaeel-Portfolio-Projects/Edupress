@@ -1,20 +1,21 @@
-import React from "react";
-import { GrFormPrevious } from "react-icons/gr";
-import { GrFormNext } from "react-icons/gr";
 import Pagination from "@mui/material/Pagination";
 
-const PaginationComponent = ({ currentPage, totalPages, onPageChange }) => {
+const PaginationComponent = ({
+  currentPage = 1,
+  totalPages = 1,
+  onPageChange = () => {},
+}) => {
   return (
-    <div className="w-full ">
+    <div className="w-full py-4">
       <Pagination
-        count={totalPages}
+        count={Math.max(totalPages, 1)}
         page={currentPage}
         onChange={(_, value) => onPageChange(value)}
         size="large"
         className="mx-auto w-max"
         sx={{
           "& .MuiPaginationItem-root": {
-            color: "#000", 
+            color: "#000",
             borderColor: "#000",
           },
           "& .Mui-selected": {

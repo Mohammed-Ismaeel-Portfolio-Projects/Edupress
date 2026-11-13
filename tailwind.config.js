@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         orange: 'rgba(255, 120, 45, 1)',
+        'orange-accessible': '#c84b00',
         black: 'rgba(0, 0, 0, 1)',
         gray: 'rgba(85, 85, 85, 1)',
         green: '#55be24',

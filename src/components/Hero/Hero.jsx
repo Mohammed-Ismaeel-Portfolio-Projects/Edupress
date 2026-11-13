@@ -1,6 +1,6 @@
-import React from 'react'
 import './HeroStyle.css'
-import Button from '../button/button'
+import Button from '../Button/Button'
+
 const Hero = () => {
   return (
     <div className="hero">
@@ -13,7 +13,7 @@ const Hero = () => {
           We denounce with righteous indignation and dislike men who are so
           beguiled and demoralized that cannot trouble.
         </p>
-        <Button buttonText={'Posts Comment'} />
+        <Button to="/courses" buttonText={'Explore Courses'} />
       </div>
     </div>
   )

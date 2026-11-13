@@ -1,77 +1,4 @@
-// import React, { useState } from "react";
-
-// const SidebarCheckbox = ({
-//   checkboxId,
-//   checkboxTitle,
-//   number,
-//   starsRate,
-//   checkboxHidden,
-//   checked,
-//   onChange,
-//   hidden = false,
-//   disabled = false,
-// }) => {
-//   const [isChecked, setIsChecked] = useState(false);
-
-//   const forId = checkboxTitle
-//     ?.toLowerCase()
-//     .split(" ")
-//     .map((word, index) =>
-//       index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
-//     )
-//     .join("");
-
-//   const renderStars = () => {
-//     if (starsRate == null) return null;
-//     const stars = [];
-//     for (let i = 0; i < 5; i++) {
-//       stars.push(
-//         <i
-//           key={i}
-//           className="fa-solid fa-star"
-//           style={{ color: i < starsRate ? "#F4BF08" : "#a2a8b4" }}
-//         ></i>
-//       );
-//     }
-//     return <div className="stars flex gap-1 mt-1">{stars}</div>;
-//   };
-
-//   // const handleCheckboxChange = () => {
-//   //   setIsChecked(!isChecked);
-//   // };
-
-//   return (
-//     <div className="cat flex justify-between">
-//       <div className="inp-checkbox flex flex-row-reverse justify-end gap-1 items-center">
-//         <label
-//           htmlFor={forId}
-//           className={`cursor-pointer ${isChecked ? "font-semibold" : ""} ${
-//             checkboxHidden ? "cursor-default" : ""
-//           }`}
-//         >
-//           {checkboxTitle}
-//           <div className="stars flex gap-1">{renderStars()}</div>
-//         </label>
-//         <input
-//           type="checkbox"
-//           name=""
-//           id={forId}
-//           className={`accent-gray ${checkboxHidden ? "hidden" : ""}`}
-//           checked={isChecked}
-//           onChange={handleCheckboxChange}
-//           disabled={`${checkboxHidden ? "hidden" : ""}`}
-//         />
-//       </div>
-//       <p>{number}</p>
-//     </div>
-//   );
-// };
-
-// export default SidebarCheckbox;
-
-
-// =================================
-import React from "react";
+import { FaStar } from "react-icons/fa6";
 
 const SidebarCheckbox = ({
   id,
@@ -83,17 +10,19 @@ const SidebarCheckbox = ({
   onChange,
   hidden = false,
   disabled = false,
+  type = "checkbox",
+  name,
 }) => {
   const renderStars = () => {
     if (starsRate == null) return null;
     const stars = [];
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <i
+        <FaStar
           key={i}
-          className="fa-solid fa-star"
+          size={14}
           style={{ color: i < starsRate ? "#F4BF08" : "#a2a8b4" }}
-        ></i>
+        />
       );
     }
     return <div className="stars flex gap-1 mt-1">{stars}</div>;
@@ -105,7 +34,7 @@ const SidebarCheckbox = ({
         <label
           htmlFor={id}
           className={`cursor-pointer text-sm leading-tight ${
-            checked ? "font-semibold" : ""
+            checked ? "font-semibold text-black" : "text-gray-700"
           } ${hidden ? "cursor-default" : ""}`}
         >
           {label}
@@ -113,16 +42,17 @@ const SidebarCheckbox = ({
         </label>
         {!hidden && (
           <input
-            type="checkbox"
+            type={type}
             id={id}
-            className="accent-gray mt-1"
+            name={name}
+            className="accent-orange mt-0.5 cursor-pointer"
             checked={checked}
             onChange={onChange}
             disabled={disabled}
           />
         )}
       </div>
-      <span className="text-sm text-gray-500">{count || number}</span>
+      <span className="text-xs text-gray-500 font-medium">{count ?? number}</span>
     </div>
   );
 };

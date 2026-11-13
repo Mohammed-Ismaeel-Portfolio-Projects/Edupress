@@ -1,6 +1,5 @@
-import React from "react";
 import NavBar from "../components/NavBar/NavBar";
-import BreakCrumb from "../components/Breakcrumb/Breakcrumb";
+import BreakCrumb from "../components/BreakCrumb/BreakCrumb";
 import Footer from "../components/Footer/Footer";
 import ContactInfo from "../components/ContactInfo/ContactInfo";
 import ContactUs from "../components/ContactUs/ContactUs";
@@ -14,13 +13,13 @@ const ContactPage = () => {
             { title: "Home", path: "" },
             { title: "Courses", path: "courses" },
             { title: "Blog", path: "blog" },
-            { title: "Page", path: "page" },
-            { title: "Premium Theme", path: "premium" },
+            { title: "Contact", path: "contact" },
+            { title: "FAQs", path: "faqs" },
           ]}
         />
         <BreakCrumb
           breakLinks={[
-            { title: "Homepage", href: "home" },
+            { title: "Homepage", href: "" },
             { title: "Contact", href: "contact" },
           ]}
         />

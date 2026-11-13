@@ -1,14 +1,15 @@
-import course1Image from "./../assets/images/courses-image-1.png";
-import course2Image from "./../assets/images/courses-image-2.png";
-import course3Image from "./../assets/images/courses-image-3.png";
-import course4Image from "./../assets/images/courses-image-4.png";
-import course5Image from "./../assets/images/courses-image-5.png";
-import course6Image from "./../assets/images/courses-image-6.png";
+import course1Image from "./../assets/images/courses-image-1.webp";
+import course2Image from "./../assets/images/courses-image-2.webp";
+import course3Image from "./../assets/images/courses-image-3.webp";
+import course4Image from "./../assets/images/courses-image-4.webp";
+import course5Image from "./../assets/images/courses-image-5.webp";
+import course6Image from "./../assets/images/courses-image-6.webp";
 
 const coursesPosts = [
   {
+    id: "commercial-design-basics",
     image: course1Image,
-    scope: "commercial",
+    scope: "design",
     title: "Commercial Design Basics",
     by: "Kenny White",
     weeks: 2,
@@ -20,8 +21,9 @@ const coursesPosts = [
     rating: 5,
   },
   {
+    id: "office-interior-layouts",
     image: course2Image,
-    scope: "office",
+    scope: "design",
     title: "Office Interior Layouts",
     by: "John Doe",
     weeks: 4,
@@ -33,8 +35,9 @@ const coursesPosts = [
     rating: 4,
   },
   {
+    id: "shop-renovation-guide",
     image: course3Image,
-    scope: "shop",
+    scope: "business",
     title: "Shop Renovation Guide",
     by: "Kenny White",
     weeks: 3,
@@ -46,8 +49,9 @@ const coursesPosts = [
     rating: 3,
   },
   {
+    id: "modern-classroom-designs",
     image: course4Image,
-    scope: "educate", // fixed
+    scope: "design",
     title: "Modern Classroom Designs",
     by: "Alice Smith",
     weeks: 2,
@@ -59,8 +63,9 @@ const coursesPosts = [
     rating: 4,
   },
   {
+    id: "minimalist-home-projects",
     image: course5Image,
-    scope: "single_family", // fixed
+    scope: "design",
     title: "Minimalist Home Projects",
     by: "John Doe",
     weeks: 5,
@@ -72,8 +77,9 @@ const coursesPosts = [
     rating: 5,
   },
   {
+    id: "campus-planning-essentials",
     image: course6Image,
-    scope: "university", // fixed
+    scope: "science",
     title: "Campus Planning Essentials",
     by: "Alice Smith",
     weeks: 6,

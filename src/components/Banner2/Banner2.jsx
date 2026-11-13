@@ -1,8 +1,5 @@
-import React from "react";
-
 import "./Banner2Style.css";
-import Button from "../button/button";
-import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const Banner2 = () => {
   return (
@@ -11,15 +8,13 @@ const Banner2 = () => {
         <p className="uppercase text-base text-black font-exo font-semibold">
           providing amazing
         </p>
-        <h1 className="text-3xl text-black font-semibold font-exo mt-3 mb-6">
+        <h2 className="text-3xl text-black font-semibold font-exo mt-3 mb-6">
           Let’s Start With Academy LMS
-        </h1>
+        </h2>
         <p className="text-gray text-lg mb-5">
           The next level of LMS WordPress Theme. Learn anytime and anywhere.
         </p>
-        <Link to="/Courses">
-          <Button buttonText={"Explorer Course"} />
-        </Link>
+        <Button to="/courses" buttonText={"Explore Courses"} />
       </div>
     </section>
   );

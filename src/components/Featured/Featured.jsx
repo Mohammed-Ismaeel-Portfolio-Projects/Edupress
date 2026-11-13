@@ -1,18 +1,18 @@
-import React from "react";
 import Heading from "../Heading/Heading";
 import FeaturedCard from "../FeaturedCard/FeaturedCard";
-import Button from "../button/button";
-import coursesPosts from "../Courses";
+import Button from "../Button/Button";
+import coursesPosts from "../Courses.js";
 
 const showFeaturedCourses = (courses) => {
-  return courses.map((course, key) => {
+  return courses.map((course) => {
     const formattedScope = course.scope
       .replace(/_/g, " ")
       .replace(/\b\w/g, (char) => char.toUpperCase());
 
     return (
       <FeaturedCard
-        key={key}
+        key={course.id}
+        courseId={course.id}
         courseImage={course.image}
         scope={formattedScope}
         title={course.title}
@@ -22,6 +22,7 @@ const showFeaturedCourses = (courses) => {
         levels={course.levels}
         lessons={course.lessons}
         salary={course.salary}
+        isFree={course.isFree}
       />
     );
   });
@@ -34,13 +35,14 @@ const Featured = () => {
         title={"Featured Courses"}
         desc={"Explore our Popular Courses"}
         buttonText={"All Courses"}
-        buttonTo={"courses"}
+        buttonTo={"/courses"}
       />
       <div className="featured-cards flex flex-wrap justify-between mt-12 gap-9 max-lg:justify-center">
         {showFeaturedCourses(coursesPosts)}
       </div>
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         <Button
+          to="/courses"
           className={"sec-button mx-auto my-5"}
           buttonText={"All Courses"}
         />

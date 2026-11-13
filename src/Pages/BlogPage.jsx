@@ -1,6 +1,5 @@
-import React from "react";
 import NavBar from "../components/NavBar/NavBar";
-import BreakCrumb from "../components/Breakcrumb/Breakcrumb";
+import BreakCrumb from "../components/BreakCrumb/BreakCrumb";
 import Footer from "../components/Footer/Footer";
 import Articles from "../components/Articles/Articles";
 
@@ -11,15 +10,15 @@ const BlogPage = () => {
         <NavBar
           navLinks={[
             { title: "Home", path: "" },
-            { title: "Courses", path: "Courses" },
-            { title: "Blog", path: "Blog" },
-            { title: "Page", path: "Page" },
-            { title: "Premium Theme", path: "Premium" },
+            { title: "Courses", path: "courses" },
+            { title: "Blog", path: "blog" },
+            { title: "Contact", path: "contact" },
+            { title: "FAQs", path: "faqs" },
           ]}
         />
         <BreakCrumb
           breakLinks={[
-            { title: "Homepage", href: "home" },
+            { title: "Homepage", href: "" },
             { title: "Blog", href: "blog" },
           ]}
         />

@@ -2,6 +2,3 @@
   transform: scale(1.04);
   cursor: pointer;
 }
-.featured-card:hover h1 {
-  color: rgba(255, 120, 45, 1);
-}

@@ -1,38 +1,31 @@
-import React from "react";
 import SidebarCheckbox from "../SidebarCheckbox/SidebarCheckbox";
 import courseCategories from "../CoursesCategory";
-import instructors from "../Instructors";
-import priceFilters from "../priceFilters";
 
 const SidebarCoursesListing = ({
   selectedCategories = [],
   selectedInstructors = [],
-  selectedPrices = [],
+  selectedPrice = "all",
+  selectedRating = null,
+  instructors = [],
+  priceCounts = { all: 0, free: 0, paid: 0 },
+  ratingCounts = [],
   onCategoryChange,
   onInstructorChange,
   onPriceChange,
+  onRatingChange,
 }) => {
-  const handlePriceChange = (id) => {
-    if (id === "all") {
-      if (selectedPrices.includes("paid") || selectedPrices.includes("free")) {
-        return;
-      }
-    }
-    onPriceChange(id);
-  };
-
   return (
-    <div className="sidebar-courses-listing max-w-72">
+    <div className="sidebar-courses-listing max-w-72 max-lg:max-w-full max-lg:w-full">
       {/* ===== Course Categories ===== */}
       <div className="min-w-60 mb-8">
-        <h1 className="text-xl font-semibold font-exo text-black mb-5">
+        <h2 className="text-xl font-semibold font-exo text-black mb-5">
           Course Category
-        </h1>
+        </h2>
         <div className="flex flex-col gap-2">
           {courseCategories.map((cat) => (
             <SidebarCheckbox
               key={cat.id}
-              id={cat.id}
+              id={`cat-${cat.id}`}
               label={cat.label}
               count={cat.count}
               checked={selectedCategories.includes(cat.id)}
@@ -44,14 +37,14 @@ const SidebarCoursesListing = ({
 
       {/* ===== Instructors ===== */}
       <div className="min-w-60 mb-8">
-        <h1 className="text-xl font-semibold font-exo text-black mb-5">
+        <h2 className="text-xl font-semibold font-exo text-black mb-5">
           Instructors
-        </h1>
+        </h2>
         <div className="flex flex-col gap-2">
           {instructors.map((inst) => (
             <SidebarCheckbox
               key={inst.id}
-              id={inst.id}
+              id={`inst-${inst.id}`}
               label={inst.name}
               count={inst.count}
               checked={selectedInstructors.includes(inst.name)}
@@ -62,19 +55,56 @@ const SidebarCoursesListing = ({
       </div>
 
       {/* ===== Price ===== */}
-      <div className="min-w-60 mb-8">
-        <h1 className="text-xl font-semibold font-exo text-black mb-5">
+      <fieldset className="min-w-60 mb-8 border-none p-0 m-0">
+        <legend className="text-xl font-semibold font-exo text-black mb-5 p-0 block float-none">
           Price
-        </h1>
+        </legend>
         <div className="flex flex-col gap-2">
-          {priceFilters.map((price) => (
+          <SidebarCheckbox
+            type="radio"
+            name="course-price-filter"
+            id="price-all"
+            label="All Courses"
+            count={priceCounts.all}
+            checked={!selectedPrice || selectedPrice === "all"}
+            onChange={() => onPriceChange("all")}
+          />
+          <SidebarCheckbox
+            type="radio"
+            name="course-price-filter"
+            id="price-free"
+            label="Free"
+            count={priceCounts.free}
+            checked={selectedPrice === "free"}
+            onChange={() => onPriceChange("free")}
+          />
+          <SidebarCheckbox
+            type="radio"
+            name="course-price-filter"
+            id="price-paid"
+            label="Paid"
+            count={priceCounts.paid}
+            checked={selectedPrice === "paid"}
+            onChange={() => onPriceChange("paid")}
+          />
+        </div>
+      </fieldset>
+
+      {/* ===== Minimum Rating ===== */}
+      <div className="min-w-60 mb-8">
+        <h2 className="text-xl font-semibold font-exo text-black mb-5">
+          Review Rating
+        </h2>
+        <div className="flex flex-col gap-2">
+          {ratingCounts.map((r) => (
             <SidebarCheckbox
-              key={price.id}
-              id={price.id}
-              label={price.label}
-              count={price.count}
-              checked={selectedPrices.includes(price.id)}
-              onChange={() => handlePriceChange(price.id)} // نستخدم دالة handlePriceChange هنا
+              key={r.stars}
+              id={`rating-${r.stars}`}
+              label={`${r.stars} Stars & Above`}
+              starsRate={r.stars}
+              count={r.count}
+              checked={selectedRating === r.stars}
+              onChange={() => onRatingChange(r.stars)}
             />
           ))}
         </div>

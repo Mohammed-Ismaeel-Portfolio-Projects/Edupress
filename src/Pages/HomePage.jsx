@@ -1,11 +1,9 @@
-import React from 'react'
 import Header from '../components/Header/Header'
 import Categories from '../components/Categories/Categories'
 import Featured from '../components/Featured/Featured'
-import Banner from '../components/banner/banner'
+import Banner from '../components/Banner/Banner'
 import Statistics from '../components/Statistics/Statistics'
 import Grow from '../components/Grow/Grow'
-
 import Footer from '../components/Footer/Footer'
 import Banner3 from '../components/Banner3/Banner3'
 import Banner2 from '../components/Banner2/Banner2'
@@ -24,7 +22,7 @@ const HomePage = () => {
       <Statistics />
       <Grow />
       <Banner2 />
-      {/* <Feedback /> */}
+      <Feedback />
       <Banner3 />
       <LatestArticles />
       <Footer />

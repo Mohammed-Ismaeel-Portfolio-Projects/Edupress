@@ -1,16 +1,19 @@
-import React from 'react'
-import './CategoryCardStyle.css'
-const CategoryCard = ({ categoryIcon, categoryTitle, coursesNum }) => {
+import { Link } from 'react-router-dom'
+
+const CategoryCard = ({ categoryIcon, categoryTitle, coursesNum, to = "/courses" }) => {
   return (
-    <div className="category-card min-w-60 h-60 flex flex-col justify-center items-center border border-slate-300 rounded-3xl hover:scale-110 cursor-pointer ">
+    <Link
+      to={to}
+      className="category-card w-full sm:w-60 max-w-[280px] h-60 flex flex-col justify-center items-center border border-slate-300 rounded-3xl hover:scale-105 hover:shadow-md transition-all duration-200 cursor-pointer bg-white group no-underline"
+    >
       <div className="icon mb-6">
-        <img src={categoryIcon} alt="" />
+        <img src={categoryIcon} alt={categoryTitle} className="w-12 h-12 object-contain" />
       </div>
-      <h1 className="font-exo text-xl font-semibold text-black">
+      <h3 className="font-exo text-xl font-semibold text-black group-hover:text-orange transition-colors">
         {categoryTitle}
-      </h1>
-      <p className="mt-3 text-lg text-gray">{coursesNum}</p>
-    </div>
+      </h3>
+      <p className="mt-3 text-sm text-gray">{coursesNum}</p>
+    </Link>
   )
 }
 

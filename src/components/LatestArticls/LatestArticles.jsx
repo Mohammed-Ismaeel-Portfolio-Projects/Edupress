@@ -1,15 +1,14 @@
-import React from 'react'
 import Heading from '../Heading/Heading'
 import ArticleCard from '../ArticleCard/ArticleCard'
-
 import articles from './../Articles'
 
-const showLatestArticles = (articles) => {
-  return articles
+const showLatestArticles = (articlesList) => {
+  return articlesList
     .slice(0, 3) 
-    .map((article, key) => (
+    .map((article) => (
       <ArticleCard
-        key={key}
+        key={article.id}
+        articleId={article.id}
         articleImage={article.image}
         title={article.title}
         date={article.date}

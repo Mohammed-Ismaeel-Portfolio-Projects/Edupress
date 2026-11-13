@@ -1,4 +1,3 @@
-import React from 'react'
 import NavBar from '../NavBar/NavBar'
 import Hero from '../Hero/Hero'
 
@@ -10,8 +9,8 @@ const Header = () => {
           { title: 'Home', path: '' },
           { title: 'Courses', path: 'courses' },
           { title: 'Blog', path: 'blog' },
-          { title: 'Page', path: 'page' },
-          { title: 'Premium Theme', path: 'premium' },
+          { title: 'Contact', path: 'contact' },
+          { title: 'FAQs', path: 'faqs' },
         ]}
       />
       <Hero />

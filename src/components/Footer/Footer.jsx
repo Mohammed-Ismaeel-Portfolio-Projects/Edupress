@@ -1,102 +1,142 @@
-import React from 'react'
 import './FooterStyle.css'
 import logo from './../../assets/images/LOGO.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+import {
+  FaFacebookF,
+  FaPinterestP,
+  FaXTwitter,
+  FaInstagram,
+  FaYoutube,
+} from 'react-icons/fa6'
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="main-footer py-12 px-16 flex justify-between gap-8 max-lg:flex-wrap max-sm:flex-col">
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="main-footer py-12 px-8 lg:px-16 flex justify-between gap-8 max-lg:flex-wrap max-sm:flex-col">
         <div className="left max-w-md">
-          <img src={logo} alt="" />
-          <p className="max-w-96 mt-8 text-gray text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <Link to="/" aria-label="EduPress Home">
+            <img src={logo} alt="EduPress Logo" className="h-9 w-auto" />
+          </Link>
+          <p className="max-w-96 mt-6 text-gray text-base leading-relaxed">
+            EduPress is the premier LMS platform delivering high quality online learning experiences, accredited certifications, and expert-led curriculum.
           </p>
         </div>
         <div className="get-help text-nowrap">
-          <h1 className="text-xl mb-8 uppercase text-black font-exo font-semibold">
+          <h2 className="text-xl mb-6 uppercase text-black font-exo font-semibold">
             get help
-          </h1>
-          <ul className="flex-col list-none gap-4 flex">
-            <li className="text-gray font-medium text-lg hover:text-orange">
+          </h2>
+          <ul className="flex-col list-none gap-3 flex">
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
               <NavLink to={`/contact`}>Contact</NavLink>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">Latest Articles</a>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <NavLink to={`/blog`}>Latest Articles</NavLink>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
               <NavLink to={`/faqs`}>FAQs</NavLink>
+            </li>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <NavLink to={`/courses`}>All Courses</NavLink>
             </li>
           </ul>
         </div>
         <div className="programs">
-          <h1 className="text-xl mb-8 uppercase text-black font-exo font-semibold">
+          <h2 className="text-xl mb-6 uppercase text-black font-exo font-semibold">
             programs
-          </h1>
-          <ul className="flex-col list-none gap-4 flex">
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">Art & Design</a>
+          </h2>
+          <ul className="flex-col list-none gap-3 flex">
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <Link to="/courses?category=design">Art & Design</Link>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">Business</a>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <Link to="/courses?category=business">Business & Finance</Link>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">IT & Software</a>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <Link to="/courses?category=development">Development</Link>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">Languages</a>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <Link to="/courses?category=marketing">Marketing</Link>
             </li>
-            <li className="text-gray font-medium text-lg hover:text-orange">
-              <a href="#">Programming</a>
+            <li className="text-gray font-medium text-base hover:text-orange transition-colors">
+              <Link to="/courses?category=content">Content Writing</Link>
             </li>
           </ul>
         </div>
         <div className="contact-us max-w-80">
-          <h1 className="text-xl mb-8 uppercase text-black font-exo font-semibold">
+          <h2 className="text-xl mb-6 uppercase text-black font-exo font-semibold">
             contact us
-          </h1>
-          <div className="contact-info flex flex-col gap-4">
-            <p className="text-gray text-lg">
-              Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA
+          </h2>
+          <div className="contact-info flex flex-col gap-3">
+            <p className="text-gray text-base leading-relaxed">
+              Address: 2321 New Design Str, Education District, New York, USA
             </p>
             <div>
-              <p className="text-gray text-lg">Tel: (123) 2500-567-8988</p>
-              <p className="text-gray text-lg">Mail: supportlms@gmail.com</p>
+              <p className="text-gray text-base">Tel: (123) 2500-567-8988</p>
+              <p className="text-gray text-base">Mail: support@edupress.com</p>
             </div>
-            <ul className="list-none flex gap-3">
+            <ul className="list-none flex gap-4 mt-2">
               <li>
-                <a href="#" className="text-gray text-xl hover:text-orange">
-                  <i className="fa-brands fa-facebook-f"></i>{' '}
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="EduPress on Facebook"
+                  className="text-gray text-lg hover:text-orange transition-colors inline-flex"
+                >
+                  <FaFacebookF size={18} />
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray text-xl hover:text-orange">
-                  <i className="fa-brands fa-pinterest-p"></i>
+                <a
+                  href="https://pinterest.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="EduPress on Pinterest"
+                  className="text-gray text-lg hover:text-orange transition-colors inline-flex"
+                >
+                  <FaPinterestP size={18} />
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray text-xl hover:text-orange">
-                  <i className="fa-brands fa-x-twitter"></i>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="EduPress on X"
+                  className="text-gray text-lg hover:text-orange transition-colors inline-flex"
+                >
+                  <FaXTwitter size={18} />
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray text-xl hover:text-orange">
-                  <i className="fa-brands fa-instagram"></i>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="EduPress on Instagram"
+                  className="text-gray text-lg hover:text-orange transition-colors inline-flex"
+                >
+                  <FaInstagram size={18} />
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray text-xl hover:text-orange">
-                  <i className="fa-brands fa-youtube"></i>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="EduPress on YouTube"
+                  className="text-gray text-lg hover:text-orange transition-colors inline-flex"
+                >
+                  <FaYoutube size={18} />
                 </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <p className="tail-footer w-max mx-auto py-12 text-gray max-sm:w-4/5 max-sm:text-center">
-        Copyright © 2024 LearnPress LMS | Powered by ThimPress
-      </p>
+      <div className="tail-footer border-t border-slate-100 py-6 text-center text-sm text-gray-500">
+        Copyright © 2026 EduPress LMS. All Rights Reserved.
+      </div>
     </footer>
   )
 }

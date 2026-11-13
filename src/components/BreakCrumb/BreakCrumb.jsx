@@ -1,38 +1,31 @@
-import React from "react";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-
-function handleClick(event) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
+import { Link as RouterLink } from "react-router-dom";
 
 const BreakCrumb = ({ breakLinks }) => {
   return (
-    <div className="w-full h-16 bg-whiteGrey flex items-center absolute mt-20 text-black z-50">
-      <div className="w-11/12 mx-auto">
-        <ul className="flex">
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
-            {breakLinks?.map((ele, key) => {
-              const isLast = key === breakLinks.length - 1;
-              return isLast ? (
-                <Typography key={key} sx={{ color: "text.primary" }}>
-                  {ele.title}
-                </Typography>
-              ) : (
-                <Link
-                  underline="hover"
-                  key={key}
-                  color="inherit"
-                  href={`/${ele.href}`}
-                >
-                  {ele.title}
-                </Link>
-              );
-            })}
-          </Breadcrumbs>
-        </ul>
+    <div className="w-full h-16 bg-whiteGrey flex items-center absolute mt-20 text-black z-40 border-b border-slate-200">
+      <div className="w-11/12 mx-auto px-4">
+        <Breadcrumbs separator="›" aria-label="breadcrumb">
+          {breakLinks?.map((ele, index) => {
+            const isLast = index === breakLinks.length - 1;
+            const targetPath = !ele.href || ele.href === 'home' ? '/' : `/${ele.href.replace(/^\//, '')}`;
+
+            return isLast ? (
+              <Typography key={index} sx={{ color: "text.primary", fontWeight: 600 }}>
+                {ele.title}
+              </Typography>
+            ) : (
+              <RouterLink
+                key={index}
+                to={targetPath}
+                className="text-gray-600 hover:text-orange hover:underline text-sm font-medium no-underline"
+              >
+                {ele.title}
+              </RouterLink>
+            );
+          })}
+        </Breadcrumbs>
       </div>
     </div>
   );

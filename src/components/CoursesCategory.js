@@ -1,13 +1,18 @@
-const courseCategories = [
-    { id: "commercial", label: "Commercial", count: 15 },
-    { id: "office", label: "Office", count: 15 },
-    { id: "shop", label: "Shop", count: 15 },
-    { id: "educate", label: "Educate", count: 15 },
-    { id: "academy", label: "Academy", count: 15 },
-    { id: "single_family", label: "Single family home", count: 15 },
-    { id: "studio", label: "Studio", count: 15 },
-    { id: "university", label: "University", count: 15 },
-  ];
-  
-  export default courseCategories;
-  
+import { categoryDefinitions } from "./categoryTaxonomy";
+import coursesPosts from "./Courses";
+
+/**
+ * Course Categories for Catalog Sidebar Filter
+ * Dynamically computes course count from actual coursesPosts dataset.
+ */
+const courseCategories = categoryDefinitions.map((cat) => {
+  const count = coursesPosts.filter((course) => course.scope === cat.slug).length;
+  return {
+    id: cat.slug,
+    slug: cat.slug,
+    label: cat.label,
+    count,
+  };
+});
+
+export default courseCategories;

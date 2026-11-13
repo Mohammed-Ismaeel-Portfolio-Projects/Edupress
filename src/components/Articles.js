@@ -1,13 +1,13 @@
-import article1 from "./../assets/images/article-image-1.png";
-import article2 from "./../assets/images/article-image-2.png";
-import article3 from "./../assets/images/article-image-3.png";
-import article4 from "./../assets/images/article-image-4.png";
-import article5 from "./../assets/images/article-image-5.png";
-import article6 from "./../assets/images/article-image-6.png";
+import article1 from "./../assets/images/article-image-1.webp";
+import article2 from "./../assets/images/article-image-2.webp";
+import article3 from "./../assets/images/article-image-3.webp";
+import article4 from "./../assets/images/article-image-4.webp";
+import article5 from "./../assets/images/article-image-5.webp";
+import article6 from "./../assets/images/article-image-6.webp";
 
 import avatarLaura from "./../assets/images/laura-avatar.png";
 import avatarMike from "./../assets/images/Mike.webp";
-import avatarJohn from "./../assets/images/John.jpg";
+import avatarJohn from "./../assets/images/john.jpg";
 import avatarSara from "./../assets/images/Sara.jpg";
 
 const articles = [
@@ -126,6 +126,28 @@ const tags = [
   "LearnPress",
   "Instructor",
 ];
+
+export const getArticleCategories = (list = articles) => {
+  const counts = {};
+  list.forEach((art) => {
+    if (art.category) {
+      const key = art.category.toLowerCase();
+      counts[key] = (counts[key] || 0) + 1;
+    }
+  });
+
+  return Object.keys(counts).map((catKey) => {
+    const formatted = catKey.charAt(0).toUpperCase() + catKey.slice(1);
+    return {
+      id: catKey,
+      slug: catKey,
+      label: formatted,
+      count: counts[catKey],
+    };
+  });
+};
+
+export const articleCategories = getArticleCategories(articles);
 
 export default articles;
 export { tags };

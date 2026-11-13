@@ -1,5 +1,6 @@
 @media screen and (max-width: 768px) {
-  .heading button {
+  .heading button,
+  .heading a {
     display: none !important;
   }
 }
